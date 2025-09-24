@@ -71,3 +71,9 @@ https://webhook.site/07ff9745-73d8-4fb6-ac5d-33ba77738c8f
 - Wrote Mongo aggregation pipeline for site summary and empty-window handling.
 
 - Suggested payload caps (100 KB), Helmet, and health check pings for ops readiness.
+
+- Used for unit test generation
+
+
+#### Note
+Unit tests were created after code submission to abide with time constraints
