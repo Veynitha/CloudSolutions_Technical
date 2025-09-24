@@ -8,6 +8,7 @@ import { CacheModule } from './cache/cache.module';
 import { HealthModule } from './health/health.module';
 import { DeviceModule } from './device/device.module';
 import { AlertsModule } from './alerts/alerts.module';
+import { SitesModule } from './sites/sites.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { AlertsModule } from './alerts/alerts.module';
     HealthModule,
     DeviceModule,
     AlertsModule,
+    SitesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
