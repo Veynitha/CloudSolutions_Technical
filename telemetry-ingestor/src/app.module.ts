@@ -7,6 +7,7 @@ import { MongoModule } from './database/mongo.module';
 import { CacheModule } from './cache/cache.module';
 import { HealthModule } from './health/health.module';
 import { DeviceModule } from './device/device.module';
+import { AlertsModule } from './alerts/alerts.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { DeviceModule } from './device/device.module';
     CacheModule,
     HealthModule,
     DeviceModule,
+    AlertsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
