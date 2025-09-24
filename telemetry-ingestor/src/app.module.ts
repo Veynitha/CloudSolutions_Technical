@@ -6,6 +6,7 @@ import { AppConfigModule } from './common/config/config.module';
 import { MongoModule } from './database/mongo.module';
 import { CacheModule } from './cache/cache.module';
 import { HealthModule } from './health/health.module';
+import { DeviceModule } from './device/device.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { HealthModule } from './health/health.module';
     MongoModule,
     CacheModule,
     HealthModule,
+    DeviceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
