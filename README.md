@@ -13,7 +13,7 @@ Minimal IoT telemetry backend: accepts JSON readings, stores in MongoDB, caches 
 
 ### 1) Clone & install
 ```bash
-git clone <your-repo-url> telemetry-ingestor
+[git clone <your-repo-url> telemetry-ingestor](https://github.com/Veynitha/CloudSolutions_Technical.git)
 cd telemetry-ingestor
 npm install
 ```
