@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { TelemetryModule } from './telemetry/telemetry.module';
 import { AppConfigModule } from './common/config/config.module';
 import { MongoModule } from './database/mongo.module';
+import { CacheModule } from './cache/cache.module';
 
 @Module({
-  imports: [TelemetryModule, AppConfigModule, MongoModule],
+  imports: [TelemetryModule, AppConfigModule, MongoModule, CacheModule],
   controllers: [AppController],
   providers: [AppService],
 })
