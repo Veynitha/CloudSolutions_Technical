@@ -10,8 +10,9 @@ import {
 } from './types/types';
 import { RedisService } from '../cache/redis.service';
 import { TelemetryPublic, toPublic } from './telemetry.public';
+import { AlertsService } from '../alerts/alerts.service';
 
-const LATEST_TTL_SECONDS = 60 * 60 * 24; // 24h; adjust or remove if you don’t want TTL
+const LATEST_TTL_SECONDS = 60 * 60 * 24;
 const latestKey = (deviceId: string) => `latest:${deviceId}`;
 
 @Injectable()
@@ -20,6 +21,7 @@ export class TelemetryService {
     @InjectModel(Telemetry.name)
     private readonly telemetryModel: Model<Telemetry>,
     private readonly redis: RedisService,
+    private readonly alerts: AlertsService,
   ) {}
 
   private async upsertLatestIfNewer(doc: Telemetry) {
@@ -50,6 +52,7 @@ export class TelemetryService {
     const response: InsertOneTelemetryResponse =
       await this.telemetryModel.create(doc);
     await this.upsertLatestIfNewer(response);
+    await this.alerts.maybeSendFor(response);
     return response;
   }
 
@@ -74,6 +77,8 @@ export class TelemetryService {
         this.upsertLatestIfNewer(doc),
       ),
     );
+
+    await Promise.all(response.map((d) => this.alerts.maybeSendFor(d)));
 
     return {
       inserted: response.length,
