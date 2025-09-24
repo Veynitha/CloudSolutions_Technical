@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TelemetryController } from './telemetry.controller';
 import { TelemetryService } from './telemetry.service';
-import { Telemetry, TelemetrySchema } from './telemetry.schema';
+import { Telemetry, TelemetrySchema } from './schema/telemetry.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CacheModule } from '../cache/cache.module';
 
